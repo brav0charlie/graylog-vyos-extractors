@@ -25,6 +25,6 @@ This has only been tested on my own Graylog install (Ubuntu 22.04.1 w/Graylog, M
 If you use this project and test it against anything else, open an issue and I'll get your testing added to the README.
 
 ## LICENSE
-See LICENSE file. 
+See included LICENSE file. 
 
 I've included the MIT license because it's as close to "I really don't care what you do with it, but it hope it helps you in some way" as I could get.
