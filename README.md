@@ -1,6 +1,6 @@
 # Graylog Extractors for VyOS
 
-This package installs [Graylog](https://www.graylog.org) [Extractors](https://docs.graylog.org/docs/extractors) for VyOS. Extractors are included for firewall, prometheus-node-exporter, and dhcp6c.
+This package installs [Graylog](https://www.graylog.org) [Extractors](https://docs.graylog.org/docs/extractors) for [VyOS](https://vyos.io). Extractors are included for firewall, prometheus-node-exporter, and dhcp6c.
 
 If you have anything to add, please feel free to submit a pull request.
 
