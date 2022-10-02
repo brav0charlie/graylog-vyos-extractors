@@ -9,7 +9,7 @@ This package only includes extractors for now. To install, navigate to your **Sy
 
 Click **Actions** then **Import extractors**, and then paste the contents of graylog-vyos-extractors.json into the box on the page. Click **Add extractors to input** then click the **Back** button in your browser. You should now see all of the extractors listed. 
 
-## Important!
+### Important!
 Keep in mind that if you import again, you're adding to what's already there: It doesn't "update" the existing with your new import. So you'll need to delete any extractors you plan to re-import.
 
 ## Testing Information
