@@ -377,6 +377,20 @@
         },
         "condition_type": "none",
         "condition_value": ""
+      },
+      {
+        "title": "VyOS Firewall 27",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 27,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} URGP=%{WORD:urgp}"
+        },
+        "condition_type": "none",
+        "condition_value": ""
       }
     ],
     "version": "4.3.7"
