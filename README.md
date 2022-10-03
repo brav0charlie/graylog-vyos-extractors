@@ -20,7 +20,7 @@ Click **Actions** then **Import extractors**, and then paste the contents of gra
 Keep in mind that if you import again, you're adding to what's already there: It doesn't "update" the existing with your new import. So you'll need to delete any extractors you plan to re-import.
 
 ## Testing Information
-This has only been tested on my own Graylog install (Ubuntu 22.04.1 w/Graylog, MongoDB, and Elasticsearch running under Docker), against my own VyOS VM at home (1.4.x-Rolling release/"sagitta").
+This has only been tested on my own Graylog install (Ubuntu 22.04.1 w/Graylog, MongoDB, and Elasticsearch running under Docker), against my own VyOS VM at home (1.4.x-sagitta).
 
 If you use this project and test it against anything else, open an issue and I'll get your testing added to the README.
 
