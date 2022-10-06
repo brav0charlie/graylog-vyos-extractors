@@ -24,6 +24,8 @@ This has only been tested on my own Graylog install (Ubuntu 22.04.1 w/Graylog, M
 
 If you use this project and test it against anything else, open an issue and I'll get your testing added to the README.
 
+One thing of note is that I'm using the Zone-based Firewall in VyOS, so my firewall rulesets are named like InputZone-OutputZone and InputZone-OutputZone-v6. These extractors SHOULD handle interface-based firewalls just fine, but I haven't got around to testing it yet.
+
 ## LICENSE
 See included LICENSE file. 
 
