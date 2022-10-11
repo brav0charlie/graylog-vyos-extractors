@@ -1,217 +1,21 @@
 {
     "extractors": [
       {
-        "title": "VyOS Firewall 13",
+        "title": "VyOS Prometheus 1",
         "extractor_type": "grok",
         "converters": [],
-        "order": 13,
+        "order": 31,
         "cursor_strategy": "copy",
-        "source_field": "full_message",
+        "source_field": "message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} DF PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code} ID=%{WORD:id2} SEQ=%{WORD:seq}"
+          "grok_pattern": "level=%{WORD:prom_level} ts=%{DATA:prom_timestamp} caller=%{DATA:prom_caller} msg=\\\"%{DATA:prom_error}\\\" name=%{DATA:prom_collector_name} duration_seconds=%{DATA:prom_duration_seconds} err=\\\"%{DATA:prom_error_message}\\\""
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 10",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 10,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} "
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 6",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 6,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} DF PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code} ID=%{WORD:id2} SEQ=%{WORD:seq}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 11",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 11,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} DF PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:packet_length}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 17",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 17,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC= SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:packet_length}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 7",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 7,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code} ID=%{WORD:id2} SEQ=%{WORD:seq}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 18",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 18,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 15",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 15,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 8",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 8,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:length}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 12",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 12,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code} ID=%{WORD:id2} SEQ=%{WORD:seq}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 19",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 19,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 4",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 4,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN= OUT=%{WORD:if_out} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 9",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 9,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN= OUT=%{WORD:if_out} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:length}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 16",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 16,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:length} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 2",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 2,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:packet_length}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 3",
+        "title": "Firewall: Extract MAC Addresses and Frame Type",
         "extractor_type": "grok",
         "converters": [],
         "order": 3,
@@ -219,41 +23,119 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC= SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code}"
+          "grok_pattern": "%{GREEDYDATA} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{ETHERTYPE:frame_type} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Prometheus 1",
+        "title": "Firewall: Extract TC Field",
         "extractor_type": "grok",
         "converters": [],
-        "order": 0,
-        "cursor_strategy": "copy",
-        "source_field": "message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "level=%{WORD:prom_level} ts=%{DATA:prom_timestamp} caller=%{DATA:prom_caller} msg=\\\"%{DATA:prom_error}\\\" name=%{DATA:prom_metric_name} duration_seconds=%{DATA:prom_duration_seconds} err=\\\"%{DATA:prom_error_message}\\\""
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 14",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 14,
+        "order": 18,
         "cursor_strategy": "copy",
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC= SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:length}"
+          "grok_pattern": "%{GREEDYDATA} TC=%{DATA:tc} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 5",
+        "title": "Firewall: Extract SRC and DST IP Fields",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 2,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} SRC=%{IP:src_ip} DST=%{IP:dst_ip} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract LEN Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 13,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} LEN=%{DATA:length} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract HOPLIMIT Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 7,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} HOPLIMIT=%{DATA:hop_limit} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract FLOWLBL Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 8,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} FLOWLBL=%{DATA:flow_label} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract PROTO Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 6,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} PROTO=%{DATA:protocol} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract SPT Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 4,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} SPT=%{DATA:spt} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract DPT Field",
         "extractor_type": "grok",
         "converters": [],
         "order": 5,
@@ -261,13 +143,104 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{DATA:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN= OUT=%{WORD:if_out} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} DF PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:length}"
+          "grok_pattern": "%{GREEDYDATA} DPT=%{DATA:dpt} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 20",
+        "title": "Firewall: Extract TTL Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 10,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} TTL=%{DATA:ttl} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract PREC Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 11,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} PREC=%{DATA:prec} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract WINDOW Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 12,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} WINDOW=%{DATA:window} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract ID Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 15,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} ID=%{DATA:id} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract URGP Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 17,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} URGP=%{NUMBER:urgp}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract RES Field",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 19,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} TYPE=%{DATA:res} %{GREEDYDATA}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "FIrewall: Extract CODE Field",
         "extractor_type": "grok",
         "converters": [],
         "order": 20,
@@ -275,13 +248,14 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:len} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
+          "grok_pattern": "%{GREEDYDATA} CODE=%{NUMBER:code} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 21",
+        "title": "Firewall: Extract SEQ Field",
         "extractor_type": "grok",
         "converters": [],
         "order": 21,
@@ -289,13 +263,28 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
+          "grok_pattern": "%{GREEDYDATA} SEQ=%{NUMBER:seq}%{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 22",
+        "title": "Firewall: Extract FRAG Flags",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 23,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "fragmentation_flag",
+        "extractor_config": {
+          "regex_value": "( DF | MF )+"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract TYPE Field",
         "extractor_type": "grok",
         "converters": [],
         "order": 22,
@@ -303,13 +292,186 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
+          "grok_pattern": "%{GREEDYDATA} TYPE=%{NUMBER:type} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 1",
+        "title": "Firewall: Extract 2 ID Fields",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 16,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "%{GREEDYDATA} ID=%{NUMBER:id} %{GREEDYDATA}ID=%{NUMBER:id_2}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract SYN Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 24,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_syn_flag",
+        "extractor_config": {
+          "regex_value": "( SYN )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract ACK Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 25,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_ack_flag",
+        "extractor_config": {
+          "regex_value": "( ACK )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract FIN Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 26,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_fin_flag",
+        "extractor_config": {
+          "regex_value": "( FIN )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract PSH Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 27,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_psh_flag",
+        "extractor_config": {
+          "regex_value": "( PSH )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract RST Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 28,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_rst_flag",
+        "extractor_config": {
+          "regex_value": "( RST )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract URG Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 29,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_urg_flag",
+        "extractor_config": {
+          "regex_value": "( URG )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Firewall: Extract RB Flag",
+        "extractor_type": "regex",
+        "converters": [],
+        "order": 30,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "tcp_rb_flag",
+        "extractor_config": {
+          "regex_value": "( RB )"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Ubuntu Firewall 1",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 32,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "<%{DATA:syslog_priority_value}>%{DATA:syslog_protocol_version} %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] %{DATA}_%{DATA:ruleset}_%{DATA:rule_action}: IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:length} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:len}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Ubuntu Firewall 2",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 33,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "<%{DATA:syslog_priority_value}>%{DATA:syslog_protocol_version} %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] %{DATA}_%{DATA:ruleset}_%{DATA:rule_action}: IN=%{WORD:if_in} OUT= MAC= SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:length} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:len}"
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "Ubuntu Firewall 3",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 34,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "<%{DATA:syslog_priority_value}>%{DATA:syslog_protocol_version} %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] %{DATA}_%{DATA:ruleset}_%{DATA:rule_action}: IN=%{GREEDYDATA:if_in} OUT= MAC= SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:length} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:len}",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "VyOS Firewall: Syslog Header, Rule Info & Interfaces",
+        "extractor_type": "grok",
+        "converters": [],
+        "order": 0,
+        "cursor_strategy": "copy",
+        "source_field": "full_message",
+        "target_field": "",
+        "extractor_config": {
+          "grok_pattern": "<%{DATA:syslog_priority_value}>%{DATA:syslog_protocol_version} %{DATA:datetime} %{DATA:hostname} %{DATA:application_name} %{DATA:proc_id} %{DATA:msg_id} %{DATA:syslog_structured_data} \\[%{DATA:syslog_uptime_seconds}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]%{WORD}=%{DATA:iface_in} %{WORD}=%{DATA:iface_out} ",
+          "named_captures_only": true
+        },
+        "condition_type": "none",
+        "condition_value": ""
+      },
+      {
+        "title": "VyOS Firewall: Extract Source and Destination Zones from Ruleset",
         "extractor_type": "grok",
         "converters": [],
         "order": 1,
@@ -317,81 +479,42 @@
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} LEN=%{WORD:packet_length}"
+          "grok_pattern": "%{GREEDYDATA} \\[%{DATA:source_zone}-%{DATA:destination_zone}-%{DATA}-%{DATA}\\]",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 23",
+        "title": "Firewall: Extract 2 LEN Fields",
         "extractor_type": "grok",
         "converters": [],
-        "order": 23,
+        "order": 14,
         "cursor_strategy": "copy",
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT=%{WORD:if_out} MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} PROTO=%{WORD:protocol} TYPE=%{WORD:type} CODE=%{WORD:code} ID=%{WORD:packet_length} SEQ=%{WORD:seq}"
+          "grok_pattern": "%{GREEDYDATA} LEN=%{NUMBER:len} %{GREEDYDATA}LEN=%{NUMBER:len_2}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       },
       {
-        "title": "VyOS Firewall 24",
+        "title": "Firewall: Extract TOS Field",
         "extractor_type": "grok",
         "converters": [],
-        "order": 24,
+        "order": 9,
         "cursor_strategy": "copy",
         "source_field": "full_message",
         "target_field": "",
         "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 25",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 25,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} %{WORD:flag} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 26",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 26,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC= SRC=%{IPV6:src_ip} DST=%{IPV6:dst_ip} LEN=%{WORD:length} TC=%{WORD:tc} HOPLIMIT=%{WORD:hop_limit} FLOWLBL=%{WORD:flow_label} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} %{WORD:flag} URGP=%{WORD:urgp}"
-        },
-        "condition_type": "none",
-        "condition_value": ""
-      },
-      {
-        "title": "VyOS Firewall 27",
-        "extractor_type": "grok",
-        "converters": [],
-        "order": 27,
-        "cursor_strategy": "copy",
-        "source_field": "full_message",
-        "target_field": "",
-        "extractor_config": {
-          "grok_pattern": "\\<%{DATA:facility_num}\\>1 %{DATA:datetime} %{DATA:host} %{WORD:application_name} - - - \\[%{DATA:time_stamp}\\] \\[%{GREEDYDATA:ruleset}-%{DATA:rule_number}-%{DATA:rule_action}\\]IN=%{WORD:if_in} OUT= MAC=%{COMMONMAC:dst_mac}:%{COMMONMAC:src_mac}:%{DATA:frame_type} SRC=%{IPV4:src_ip} DST=%{IPV4:dst_ip} LEN=%{WORD:length} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{WORD:ttl} ID=%{WORD:id} %{WORD:flag} PROTO=%{WORD:protocol} SPT=%{WORD:spt} DPT=%{WORD:dpt} WINDOW=%{WORD:window} RES=%{WORD:res} URGP=%{WORD:urgp}"
+          "grok_pattern": "%{GREEDYDATA} TOS=%{DATA:tos} %{GREEDYDATA}",
+          "named_captures_only": true
         },
         "condition_type": "none",
         "condition_value": ""
       }
     ],
-    "version": "4.3.7"
+    "version": "4.3.8"
   }
